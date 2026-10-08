@@ -1,0 +1,406 @@
+/* 기본 페이지 설정 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  background-color: #faf6f0;
+  color: #3f2a1d;
+  font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+}
+
+/* 카페 상단 영역 */
+header,
+main {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header div {
+  font-size: 52px;
+  display: inline-block;
+  animation: logo-shake 0.45s ease-in-out infinite;
+}
+
+/* 카페 로고 흔들림 효과 */
+@keyframes logo-shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+header h1 {
+  margin: 8px 0;
+  color: #6b4226;
+}
+
+header p {
+  margin: 0;
+  color: #80614b;
+}
+
+/* 주문하기와 주문 내역을 전환하는 탭 */
+.tab-menu {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e2d1c3;
+}
+
+.tab-button {
+  width: auto;
+  padding: 10px 2px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #a58872;
+}
+
+.tab-button:hover {
+  background: transparent;
+  color: #6b4226;
+}
+
+.tab-button.active {
+  border-bottom-color: #6b4226;
+  color: #6b4226;
+}
+
+/* 주문 건수를 표시하는 둥근 배지 */
+.order-count {
+  display: inline-block;
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background-color: #6b4226;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+/* 주문서 카드 */
+form {
+  padding: 28px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(107, 66, 38, 0.12);
+}
+
+form > div {
+  margin-bottom: 18px;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: 7px;
+  color: #6b4226;
+  font-weight: 700;
+}
+
+/* 필수 입력 항목의 별표 */
+label.required::after {
+  margin-left: 4px;
+  color: #c0392b;
+  content: "*";
+}
+
+/* 입력 요소 */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d9c6b6;
+  border-radius: 8px;
+  background-color: #fffdfb;
+  color: #3f2a1d;
+  font: inherit;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6b4226;
+  box-shadow: 0 0 0 3px rgba(169, 120, 82, 0.22);
+}
+
+/* 사이즈와 추가 옵션 영역 */
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid #eadcd0;
+  border-radius: 10px;
+}
+
+fieldset legend {
+  padding: 0 5px;
+}
+
+fieldset input {
+  width: auto;
+  margin: 0;
+  accent-color: #6b4226;
+}
+
+fieldset label {
+  display: inline;
+  margin: 0 4px 0 -8px;
+  color: #4d3627;
+  font-weight: 400;
+}
+
+/* 예상 금액 */
+#estimated-price {
+  margin: 24px 0 18px;
+  color: #6b4226;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 버튼 */
+button {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #6b4226;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+button[type="submit"] {
+  background-color: #6b4226;
+  color: #ffffff;
+}
+
+button[type="submit"]:hover {
+  background-color: #865839;
+  box-shadow: 0 5px 12px rgba(107, 66, 38, 0.25);
+  transform: translateY(-2px);
+}
+
+button[type="reset"] {
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: #6b4226;
+}
+
+button[type="reset"]:hover {
+  background-color: #f4ebe3;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* 주문 확인 메시지 */
+#order-message {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 8px;
+  background-color: #e6f4d7;
+  color: #2f6b2f;
+}
+
+/* 주문 내역 영역 */
+.history-card {
+  padding: 22px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(107, 66, 38, 0.12);
+}
+
+.empty-orders {
+  margin: 0;
+  padding: 28px 0;
+  color: #80614b;
+  text-align: center;
+}
+
+.order-item {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 14px 54px 14px 16px;
+  border-left: 5px solid #6b4226;
+  border-radius: 8px;
+  background-color: #faf6f0;
+}
+
+.order-title,
+.order-detail,
+.order-meta {
+  margin: 0;
+}
+
+.order-title {
+  color: #6b4226;
+  font-weight: 700;
+}
+
+.order-detail {
+  margin-top: 6px;
+}
+
+.order-meta {
+  margin-top: 7px;
+  color: #80614b;
+  font-size: 13px;
+}
+
+.cancel-order {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: auto;
+  padding: 5px 8px;
+  border-color: #a65a4d;
+  background-color: #ffffff;
+  color: #a65a4d;
+  font-size: 13px;
+}
+
+.cancel-order:hover {
+  background-color: #fff0ed;
+}
+
+#order-summary {
+  margin: 20px 0 12px;
+  color: #6b4226;
+  font-weight: 700;
+  text-align: center;
+}
+
+.clear-orders {
+  border-color: #a65a4d;
+  background-color: #ffffff;
+  color: #a65a4d;
+}
+
+.clear-orders:hover {
+  background-color: #fff0ed;
+}
+
+.print-receipt {
+  margin-bottom: 10px;
+  background-color: #6b4226;
+  color: #ffffff;
+}
+
+.print-receipt:hover {
+  background-color: #865839;
+}
+
+/* hidden 속성 또는 클래스가 있으면 숨김 */
+[hidden],
+.hidden {
+  display: none !important;
+}
+
+/* 작은 화면 대응 */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  header div {
+    font-size: 44px;
+  }
+
+  #estimated-price {
+    font-size: 22px;
+  }
+
+  .tab-menu {
+    gap: 12px;
+  }
+
+  .history-card {
+    padding: 16px;
+  }
+}
+
+/* 움직임을 줄이도록 설정한 사용자를 위한 처리 */
+@media (prefers-reduced-motion: reduce) {
+  header div {
+    animation: none;
+  }
+}
+
+/* 인쇄할 때는 주문 내역 영수증만 보이도록 정리합니다. */
+@media print {
+  body {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  header,
+  .tab-menu,
+  #order-panel,
+  .print-receipt,
+  .clear-orders,
+  .cancel-order {
+    display: none !important;
+  }
+
+  main,
+  #history-panel,
+  .history-card {
+    display: block !important;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .history-card::before {
+    display: block;
+    margin-bottom: 18px;
+    color: #6b4226;
+    content: "바이브 카페 주문 영수증";
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .order-item {
+    break-inside: avoid;
+  }
+}
